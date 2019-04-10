@@ -31,3 +31,10 @@
     transform: rotate(360deg);
   }
 }
+
+.formio-div{
+  height:700px;
+  overflow-x: auto;
+  padding: 10px;
+  background-color: lightgrey;
+}
