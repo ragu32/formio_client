@@ -1,16 +1,11 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
-import {Form, Errors} from 'react-formio';
+import {Form} from 'react-formio';
 import Iframe from 'react-iframe'
 import {Row, Col, InputGroup, FormControl, Button} from 'react-bootstrap'
 import Header from './Header';
 
 class App extends Component {
-
-  constructor(props){
-    super(props)
-  }
 
   state={
     url : "",
@@ -47,17 +42,15 @@ class App extends Component {
       <div>
           <Header/>
           <Row>
-            <Col className="justify-content-md-center">
+            <Col>
               <input type="file" id="myFile" onChange={this.handleFileChange.bind(this)}></input>
               <Iframe url={this.state.frameSrc} width="90%" height="700px"/>
             </Col>
-            <Col className="justify-content-md-center">
-            <InputGroup>
-              <FormControl type="text" aria-label="With textarea" onChange={this.handleChange.bind(this)}/>
-              <InputGroup.Append>
-                <Button onClick={this.handleClick.bind(this)}>Fill Form</Button>
-              </InputGroup.Append>
-            </InputGroup>
+            <Col>
+              <InputGroup>
+                <FormControl placeholder="Enter path" onChange={this.handleChange.bind(this)}></FormControl>
+                <InputGroup.Append><Button onClick={this.handleClick.bind(this)}>Fill Form</Button></InputGroup.Append>
+              </InputGroup>
               <div className="formio-div" id="formio-div">
                 <Form src={this.state.embedUrl} >
                 </Form>
